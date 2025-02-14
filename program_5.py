@@ -1,20 +1,19 @@
-# Program #5: Bank Balance
-# Write a program that asks the user to enter the amount that he or she has budgeted for a month.
-# A loop should then prompt the user to enter each of his or her expenses for the 
-# month and keep a running total. (Enter 0 to exit the loop)  
-# When the loop finishes, the program should display the amount that the 
-# user is over or under budget.
+#By: Sabria Fafach
+#Date: Febuary, 2 2025
+#Title: program_5.py
 
-def main():
-    budget = 0.0
-    difference = 0.0
-    spent = 1.0         #initialize for while loop
-    total = 0.0
+budgeted_amount=float(input("Enter the amount of money you have budgeted for the month in dollars:"))
+expense=0
+exp_int=input("Do you want to enter an expense?(enter y for yes):")
+while exp_int=="y":
+    expense=float(input("Enter your expense in dollars:"))+expense
+    exp_int=input("Do you want to add another expense?(enter y for yes):")
 
-    ######################
-    # WRITE YOUR CODE HERE
-    ######################
+difference=budgeted_amount-expense
 
-
-if __name__ == '__main__':
-    main()
+if difference>0:
+    print(f"You have ${difference:.2f} left for the month.")
+elif difference<0:
+    print(f"You have spent ${((difference)**2)**.5:.2f} more than you budgeted.")
+else:
+    print("You have broken even.")
